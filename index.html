@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Interactive Radar Chart</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <script src="Chart.min.js"></script>
+  <!--
+    https://www.npmjs.com/package/chartjs-plugin-dragdata
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-dragdata@0.3.0/dist/chartjs-plugin-dragData.min.js"></script>
+</head>
+<body>
+  <table width="100%" height="100%" style="padding:2%">
+    <tr>
+      <td>
+        item: <span id="item"></span><br>
+        value: <span id="value"></span><br>
+        Polygons:<br><textarea id="names" rows="5" cols="35">1, 2, 3</textarea><br>
+        Attributes:<br><textarea id="attributes" rows="30" cols="35">A, B, C, D, E, F, G, H, I, J</textarea>  
+            <br>
+        <button onclick="updateConfigByMutating()">Update</button>
+      </td>
+      <td><canvas id="chart-0"></canvas>
+      </td>
+    </tr>
+  </table>
+</body>
+<script src="script.js"></script>
+</html>
