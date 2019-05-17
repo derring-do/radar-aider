@@ -1,6 +1,8 @@
 var myCanvas = document.getElementById('chart-0');
 var ctx = document.getElementById('chart-0').getContext('2d');
 
+// [] some kind of listener on any change to the table to update the radar chart
+
 // Define pallette for names
 var palette = [
   " rgba(8, 7, 8, .3)",
