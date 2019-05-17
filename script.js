@@ -1,29 +1,41 @@
 var myCanvas = document.getElementById('chart-0');
 var ctx = document.getElementById('chart-0').getContext('2d');
 
-// var names = ["Meganium", "Feraligatr", "Typhlosion"];
-// var attributes = ["HP", "Attack", "Defense", "Special Attack", "Special Defense", "Speed"];
+// Populate input fields with default data
+for(names = [], i=0; i<data.datasets.length; i++) {
+  names.push(data.datasets[i].label)
+}
 
-// document.querySelector("#names").value = names;
-// document.querySelector("#attributes").value = attributes;
+document.querySelector("#names").value = names.join().replace(/,/g, "\n");
+document.querySelector("#attributes").value = data.labels.join().replace(/,/g, "\n");
 
-var palette = ["rgba(255,204,51,0.3)", "rgba(51,153,153,0.3)", "rgba(255,0,0,0.3)"]
-// var datasets = [];
+// Define pallette for names
+var palette = [
+ " rgba(8, 7, 8, 1)",
+  "rgba(55, 114, 255, 1)",
+  "rgba(223, 41, 53, 1)",
+  "rgba(253, 202, 64, 1)",
+  "rgba(230, 232, 230, 1)"
+];
 
-// function updateConfigByMutating() {
-//   datasets2 = [];
-//   var names2 = document.querySelector("#names").value.split(",");
-//   var attributes2 = document.querySelector("#attributes").value.split(",")
-//   makeData(names2, attributes2, datasets2)
-//   myChart.data.labels = attributes2;
-//   myChart.data.datasets = datasets2;
-//   myChart.update();
-//   }
+function updateConfigByMutating() {
+  datasets2 = [];
+  var names2 = document.querySelector("#names").value.split("\n");
+  var attributes2 = document.querySelector("#attributes").value.split("\n")
+  makeData(names2, attributes2, datasets2)
+  myChart.data.labels = attributes2;
+  myChart.data.datasets = datasets2;
+  myChart.update();
+  }
 
 var myChart = new Chart(ctx, {
   type: 'radar',
   data: data,
   options: {
+    title: {
+      display: true,
+      text: "Construct"
+    }
     scale: {
       pointLabels: {
         fontSize: 14 
