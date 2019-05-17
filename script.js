@@ -48,6 +48,7 @@ var myChart = new Chart(ctx, {
       console.log(`datasetIndex:${datasetIndex}, index:${index}, value:${value}`);
       document.getElementById('item').innerHTML = myChart.config.data.labels[index];
       document.getElementById('value').innerHTML = value;
+      updateTable()
     },
   }
 });
