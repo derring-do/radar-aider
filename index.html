@@ -17,8 +17,10 @@
 </head>
 <body>
 <!-- add buttons to add and delete and stuff -->
-<button onclick='tableData.unshift({name:""});'>Add New Row</button>
+<button onclick='tableData.unshift({name:""});'>Add Row</button>
 <button onclick='tableData.shift({name:""});'>Remove Row</button>
+<button onclick='table.addColumn({title:" ", field:" "}, false);'>Add Column</button>
+<button onclick='table.deleteColumn(" ");'>Delete Column</button>
 
 <!-- this adds the new row but it hasn't reacted yet -->
 
