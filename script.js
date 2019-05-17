@@ -32,7 +32,15 @@ var myChart = new Chart(ctx, {
         max: 3, 
         min: 0,
         stepSize: 1
-      }
+      },
+      layout: {
+        padding: {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0
+        }
+    }
     },
 
     //tooltips: {

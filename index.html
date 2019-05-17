@@ -13,20 +13,17 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-dragdata@0.3.0/dist/chartjs-plugin-dragData.min.js"></script>
 </head>
 <body>
-  <table width="100%" height="100%" style="padding:2%">
-    <tr>
-      <td>
-        item: <span id="item"></span><br>
-        value: <span id="value"></span><br>
-        Polygons:<br><textarea id="names" rows="5" cols="35">1, 2, 3</textarea><br>
-        Attributes:<br><textarea id="attributes" rows="30" cols="35">A, B, C, D, E, F, G, H, I, J</textarea>  
-            <br>
-        <button onclick="updateConfigByMutating()">Update</button>
-      </td>
-      <td><canvas id="chart-0"></canvas>
-      </td>
-    </tr>
-  </table>
+<div class="container">
+  <div class="inputs">
+    item: <span id="item"></span><br>
+    value: <span id="value"></span><br>
+    Polygons:<br><textarea id="names" rows="5" cols="35">1, 2, 3</textarea><br>
+    Attributes:<br><textarea id="attributes" rows="30" cols="35">A, B, C, D, E, F, G, H, I, J</textarea>  
+        <br>
+    <button onclick="updateConfigByMutating()">Update</button>
+</div>
+  <div class="chart-area"><canvas id="chart-0"></canvas></div>
+</div>
 </body>
 <script src="script.js"></script>
 </html>

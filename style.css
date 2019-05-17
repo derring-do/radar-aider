@@ -189,3 +189,22 @@ a:hover {
 	padding: 2px;
 	text-align: center;
 }
+
+/* flex layout stuff */
+.container {
+	display: flex;
+	flex-wrap: nowrap;
+	padding: 2%;
+	overflow-x: hidden;
+}
+
+.inputs {
+	flex: 0 1 20%;
+}
+
+.chart-area {
+	position: relative;
+	left: -150px;
+	flex: 2 0 1000px;
+	overflow-x: hidden;
+}
