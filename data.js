@@ -11,7 +11,7 @@ var data = {
         label: "Meganium",
         data: [80, 82, 100, 83, 100, 80],
         backgroundColor: "rgba(98, 189, 65, .3)",
-        pointRadius: 5,
+        pointRadius:10,
         pointHoverRadius: 10
     },
     {
@@ -25,7 +25,7 @@ var data = {
         label: "Typhlosion",
         data: [85, 105, 100, 79, 83, 78],
         backgroundColor: "rgba(222, 0, 0, 0.3)",
-        pointRadius: 5,
+        pointRadius: 10,
         pointHoverRadius: 10
     }]
 }
