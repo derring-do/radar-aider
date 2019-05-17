@@ -42,13 +42,13 @@ var table = new Tabulator("#example-table", {
 	// 	{column:"name", dir:"asc"},
 	// ],
 	columns:[                 //define the table columns
-		{title:"name", field:"name", editor:"input"},
-		{title:"hp", field:"hp", editor:"input"},
-		{title:"att", field:"att", editor:"input"},
-		{title:"def", field:"def", editor:"input"},
-		{title:"spatt", field:"spatt", editor:"input"},
-		{title:"spdef", field:"spdef", editor:"input"},
-		{title:"speed", field:"speed", editor:"input"},
+		{title:"name", field:"name", editor:"input", editableTitle:true},
+		{title:"hp", field:"hp", editor:"input", editableTitle:true},
+		{title:"att", field:"att", editor:"input", editableTitle:true},
+		{title:"def", field:"def", editor:"input", editableTitle:true},
+		{title:"spatt", field:"spatt", editor:"input", editableTitle:true},
+		{title:"spdef", field:"spdef", editor:"input", editableTitle:true},
+		{title:"speed", field:"speed", editor:"input", editableTitle:true},
 	],
 });
 
