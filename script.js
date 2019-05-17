@@ -3,25 +3,6 @@ var ctx = document.getElementById('chart-0').getContext('2d');
 
 // [] some kind of listener on any change to the table to update the radar chart
 
-// Define pallette for names
-var palette = [
-  " rgba(8, 7, 8, .3)",
-  "rgba(55, 114, 255, .3)",
-  "rgba(223, 41, 53, .3)",
-  "rgba(253, 202, 64, .3)",
-  "rgba(230, 232, 230, .3)"
-];
-
-function updateConfigByMutating() {
-  datasets2 = [];
-  var names2 = document.querySelector("#names").value.split("\n");
-  var attributes2 = document.querySelector("#attributes").value.split("\n")
-  makeData(names2, attributes2, datasets2)
-  myChart.data.labels = attributes2;
-  myChart.data.datasets = datasets2;
-  myChart.update();
-}
-
 var myChart = new Chart(ctx, {
   type: 'radar',
   data: radarData,
@@ -69,6 +50,20 @@ var myChart = new Chart(ctx, {
     },
   }
 });
+
+function updateRadar() {
+  
+}
+
+function updateConfigByMutating() {
+  datasets2 = [];
+  var names2 = document.querySelector("#names").value.split("\n");
+  var attributes2 = document.querySelector("#attributes").value.split("\n")
+  makeData(names2, attributes2, datasets2)
+  myChart.data.labels = attributes2;
+  myChart.data.datasets = datasets2;
+  myChart.update();
+}
 
 function makeData(names, attributes, datasets) {
   var max = myChart.options.scale.ticks.max;
