@@ -20,7 +20,7 @@
 <button onclick='tableData.unshift({name:""});'>Add Row</button>
 <button onclick='tableData.shift({name:""});'>Remove Row</button>
 <button onclick='table.addColumn({title:" ", field:" "}, false);'>Add Column</button>
-<button onclick='table.deleteColumn(" ");'>Delete Column</button>
+<button onclick='table.deleteColumn(table.getColumns(true)[table.getColumns(true).length-1]);'>Delete Column</button>
 
 <!-- this adds the new row but it hasn't reacted yet -->
 
