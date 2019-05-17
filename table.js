@@ -116,3 +116,4 @@ function updateRadar() {
 function updateTable() {
 	table.setData(radarValuesToTableValues())
 }
+
