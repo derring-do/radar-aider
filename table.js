@@ -9,6 +9,23 @@ var tableData = [
 	{name:"Typhlosion", hp: 85, att: 105, def: 100, spatt: 79, spdef: 63, speed: 78}
 ];
 
+function radarValuesToTableValues() {
+	var newTableData = []
+	for (var rd = myChart.data.datasets, i = 0; i < rd.length; i++) {
+		name = '{ "name": "' + rd[i].label + '"'; 
+		nums = [];
+		for (var l = myChart.data.labels, j = 0; j < l.length; j++) {
+			nums.push('"' + l[j] + '": ' + rd[i].data[j])
+			entry = name + ", " + nums.join(", ")
+		}
+		var entryObj = JSON.parse(entry + "}")
+		newTableData.push(entryObj)
+	}
+	return(newTableData)
+}
+
+// var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
+
 var table = new Tabulator("#example-table", {
 	data: tableData,          //load row data from array
 	layout:"fitColumns",      //fit columns to width of table
@@ -24,13 +41,13 @@ var table = new Tabulator("#example-table", {
 	// 	{column:"name", dir:"asc"},
 	// ],
 	columns:[                 //define the table columns
-		{title:"Name", field:"name", editor:"input"},
-		{title:"HP", field:"hp", editor:"input"},
-		{title:"Attack", field:"att", editor:"input"},
-		{title:"Defense", field:"def", editor:"input"},
-		{title:"Special Attack", field:"spatt", editor:"input"},
-		{title:"Special Defense", field:"spdef", editor:"input"},
-		{title:"Speed", field:"speed", editor:"input"},
+		{title:"name", field:"name", editor:"input"},
+		{title:"hp", field:"hp", editor:"input"},
+		{title:"att", field:"att", editor:"input"},
+		{title:"def", field:"def", editor:"input"},
+		{title:"spatt", field:"spatt", editor:"input"},
+		{title:"spdef", field:"spdef", editor:"input"},
+		{title:"speed", field:"speed", editor:"input"},
 	],
 });
 
@@ -56,6 +73,7 @@ function tableRowsToRadarPolygons() {
 	}
 	return(radarDatasets)
 }
+
 
 // table rows to radar polygons (legend)
 
@@ -93,4 +111,8 @@ function updateRadar() {
 	}
 	myChart.data = newData;
 	myChart.update();
+}
+
+function updateTable() {
+	table.setData(radarValuesToTableValues())
 }

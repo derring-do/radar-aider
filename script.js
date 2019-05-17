@@ -50,28 +50,3 @@ var myChart = new Chart(ctx, {
     },
   }
 });
-
-function updateConfigByMutating() {
-  datasets2 = [];
-  var names2 = document.querySelector("#names").value.split("\n");
-  var attributes2 = document.querySelector("#attributes").value.split("\n")
-  makeData(names2, attributes2, datasets2)
-  myChart.data.labels = attributes2;
-  myChart.data.datasets = datasets2;
-  myChart.update();
-}
-
-function makeData(names, attributes, datasets) {
-  var max = myChart.options.scale.ticks.max;
-  for (i = 0; i < names.length; i++) {
-    var data = {
-      label: names[i],
-      data: Array(attributes.length).fill(max / (1 + i)),
-      backgroundColor: palette[i],
-      pointRadius: 5,
-      pointHoverRadius: 10
-    };
-    console.log(data)
-    datasets.push(data)
-  };
-}
