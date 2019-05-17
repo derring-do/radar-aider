@@ -1,14 +1,6 @@
 var myCanvas = document.getElementById('chart-0');
 var ctx = document.getElementById('chart-0').getContext('2d');
 
-// Populate input fields with default data
-for (names = [], i = 0; i < radarData.datasets.length; i++) {
-  names.push(radarData.datasets[i].label)
-}
-
-document.querySelector("#names").value = names.join().replace(/,/g, "\n");
-document.querySelector("#attributes").value = radarData.labels.join().replace(/,/g, "\n");
-
 // Define pallette for names
 var palette = [
   " rgba(8, 7, 8, .3)",
