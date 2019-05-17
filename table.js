@@ -20,9 +20,9 @@ var table = new Tabulator("#example-table", {
 	paginationSize:7,         //allow 7 rows per page of data
 	movableColumns:true,      //allow column order to be changed
 	resizableRows:true,       //allow row order to be changed
-	initialSort:[             //set the initial sort order of the data
-		{column:"name", dir:"asc"},
-	],
+	// initialSort:[             //set the initial sort order of the data
+	// 	{column:"name", dir:"asc"},
+	// ],
 	columns:[                 //define the table columns
 		{title:"Name", field:"name", editor:"input"},
 		{title:"HP", field:"hp", editor:"input"},
@@ -35,26 +35,34 @@ var table = new Tabulator("#example-table", {
 });
 
 // table columns to radar labels
-for(var radarLabels=[], tc = table.columnManager.columns, i=1; i<tc.length;i++) {
-	radarLabels.push(tc[i].definition.title)
-}; radarLabels
+
+function tableColumnsToRadarLabels() {
+	for(var radarLabels=[], tc = table.columnManager.columns, i=1; i<tc.length;i++) {
+		radarLabels.push(tc[i].definition.title)
+	}
+	return(radarLabels)
+}
+
+function tableRowsToRadarPolygons() {
+	for (var radarDatasets = [], tr = table.getData(), i = 0; i < tr.length; i++) {
+		var entry = {
+			label: tr[i].name,
+			data: Object.values(tr[i]).slice(1, tr[i].length),
+			backgroundColor: palette[i],
+			pointRadius: 5,
+			pointHoverRadius: 10
+		}
+		radarDatasets.push(entry)
+	}
+	return(radarDatasets)
+}
 
 // table rows to radar polygons (legend)
-for (var radarDatasets = [], tr = table.getData(), i = 0; i < tr.length; i++) {
-	var entry = {
-		label: tr[i].name,
-		data: Object.values(tr[i]).slice(1, tr[i].length),
-		backgroundColor: palette[i],
-		pointRadius: 5,
-		pointHoverRadius: 10
-	}
-	radarDatasets.push(entry)
-}; radarDatasets
 
 // format radar data from table / table construct
 var radarData = {
-		labels: radarLabels, // will the label order match? label order appears to match
-		datasets: radarDatasets
+		labels: tableColumnsToRadarLabels(), // will the label order match? label order appears to match
+		datasets: tableRowsToRadarPolygons() 
     // datasets: [{
     //     label: "Meganium",
     //     data: [80, 82, 100, 83, 100, 80],
@@ -78,3 +86,11 @@ var radarData = {
     // }]
 }
 
+function updateRadar() {
+	var newData = {
+		labels: tableColumnsToRadarLabels(), // will the label order match? label order appears to match
+		datasets: tableRowsToRadarPolygons() 
+	}
+	myChart.data = newData;
+	myChart.update();
+}

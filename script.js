@@ -51,10 +51,6 @@ var myChart = new Chart(ctx, {
   }
 });
 
-function updateRadar() {
-  
-}
-
 function updateConfigByMutating() {
   datasets2 = [];
   var names2 = document.querySelector("#names").value.split("\n");
