@@ -5,14 +5,20 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Interactive Radar Chart</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/tabulator-tables@4.1.1/dist/css/tabulator.min.css">
   <script src="Chart.min.js"></script>
+  <script src="tabulator.min.js"></script>
   <!--
     https://www.npmjs.com/package/chartjs-plugin-dragdata
   -->
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-dragdata@0.3.0/dist/chartjs-plugin-dragData.min.js"></script>
+
 </head>
 <body>
+<div id="example-table"></div>
+<!-- add fxnality: http://tabulator.info/examples/4.2#adddel -->
+
 <div class="container">
   <div class="inputs">
     item: <span id="item"></span><br>
@@ -27,4 +33,6 @@
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>
+<script src="table.js"></script>
+
 </html>
