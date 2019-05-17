@@ -1,37 +1,37 @@
 var myCanvas = document.getElementById('chart-0');
 var ctx = document.getElementById('chart-0').getContext('2d');
 
-var names = document.querySelector("#names").innerHTML.split(",")
-var attributes = document.querySelector("#attributes").innerHTML.split(",")
+// var names = ["Meganium", "Feraligatr", "Typhlosion"];
+// var attributes = ["HP", "Attack", "Defense", "Special Attack", "Special Defense", "Speed"];
+
+// document.querySelector("#names").value = names;
+// document.querySelector("#attributes").value = attributes;
 
 var palette = ["rgba(255,204,51,0.3)", "rgba(51,153,153,0.3)", "rgba(255,0,0,0.3)"]
-var datasets = [];
+// var datasets = [];
 
-function updateConfigByMutating() {
-  datasets2 = [];
-  var names2 = document.querySelector("#names").value.split(",");
-  var attributes2 = document.querySelector("#attributes").value.split(",")
-  makeData(names2, attributes2, datasets2)
-  myChart.data.labels = attributes2;
-  myChart.data.datasets = datasets2;
-  myChart.update();
-  }
+// function updateConfigByMutating() {
+//   datasets2 = [];
+//   var names2 = document.querySelector("#names").value.split(",");
+//   var attributes2 = document.querySelector("#attributes").value.split(",")
+//   makeData(names2, attributes2, datasets2)
+//   myChart.data.labels = attributes2;
+//   myChart.data.datasets = datasets2;
+//   myChart.update();
+//   }
 
 var myChart = new Chart(ctx, {
   type: 'radar',
-  data: {
-    labels: attributes,
-    datasets: datasets
-  },
+  data: data,
   options: {
     scale: {
       pointLabels: {
         fontSize: 14 
       },
       ticks: {
-        max: 3, 
+        max: 120, 
         min: 0,
-        stepSize: 1
+        stepSize: 0
       },
       layout: {
         padding: {
@@ -64,19 +64,19 @@ var myChart = new Chart(ctx, {
   }
 });
 
-function makeData(names, attributes, datasets) {
-for(i=0; i<names.length; i++) {
-  var data = {
-    label: names[i],
-    data: Array(attributes.length).fill(myChart.options.scale.ticks.max - (i+.25)),
-    backgroundColor: palette[i],
-    pointRadius: 10,
-    pointHoverRadius: 10
-    };
-    console.log(data)
-    datasets.push(data)
-};
-}
+// function makeData(names, attributes, datasets) {
+// for(i=0; i<names.length; i++) {
+//   var data = {
+//     label: names[i],
+//     data: Array(attributes.length).fill(myChart.options.scale.ticks.max - (i+.25)),
+//     backgroundColor: palette[i],
+//     pointRadius: 10,
+//     pointHoverRadius: 10
+//     };
+//     console.log(data)
+//     datasets.push(data)
+// };
+// }
 
-makeData(names, attributes, datasets);
+// makeData(names, attributes, datasets);
 
