@@ -28,6 +28,7 @@ function radarValuesToTableValues() {
 
 var table = new Tabulator("#example-table", {
 	data: tableData,          //load row data from array
+	reactiveData:true, 
 	layout:"fitColumns",      //fit columns to width of table
 	responsiveLayout:"hide",  //hide columns that dont fit on the table
 	tooltips:true,            //show tool tips on cells
@@ -80,7 +81,7 @@ function tableRowsToRadarPolygons() {
 // format radar data from table / table construct
 var radarData = {
 		labels: tableColumnsToRadarLabels(), // will the label order match? label order appears to match
-		datasets: tableRowsToRadarPolygons() 
+		datasets: tableRowsToRadarPolygons(),
     // datasets: [{
     //     label: "Meganium",
     //     data: [80, 82, 100, 83, 100, 80],
