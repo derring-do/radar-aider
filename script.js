@@ -35,7 +35,7 @@ var myChart = new Chart(ctx, {
     title: {
       display: true,
       text: "Construct"
-    }
+    },
     scale: {
       pointLabels: {
         fontSize: 14 
