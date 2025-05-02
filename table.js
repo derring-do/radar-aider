@@ -28,6 +28,7 @@ function radarValuesToTableValues() {
 
 var table = new Tabulator("#example-table", {
 	data: tableData,          //load row data from array
+	movableRows: true,
 	reactiveData:true, 
 	layout:"fitColumns",      //fit columns to width of table
 	responsiveLayout:"hide",  //hide columns that dont fit on the table
