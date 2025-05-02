@@ -41,7 +41,7 @@ var myChart = new Chart(ctx, {
     //  }
     //},
 
-    dragData: true,
+    dragY: true,
     dragX: true,
     dragDataRound: 1,
     onDragEnd: function (event, datasetIndex, index, value) {
