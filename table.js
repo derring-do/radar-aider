@@ -14,7 +14,7 @@ function radarValuesToTableValues() {
 	for (var rd = myChart.data.datasets, i = 0; i < rd.length; i++) {
 		rname = '{ "name": "' + rd[i].label + '"'; 
 		nums = [];
-		for (var l = myChart.data.labels.slice(1, myChart.data.labels.length), j = 0; j < l.length; j++) {
+		for (var l = myChart.data.labels, j = 0; j < l.length; j++) {
 			nums.push('"' + l[j] + '": ' + rd[i].data[j])
 			entry = rname + ", " + nums.join(", ")
 		}
@@ -57,8 +57,8 @@ var table = new Tabulator("#example-table", {
 
 // table columns to radar labels
 
-function tableColumnsToRadarLabels() {
-	for(var radarLabels=[], tc = table.columnManager.columns, i=1; i<tc.length;i++) {
+function tableColumnsToRadarLabels() { // exclude naming column by changing i
+	for(var radarLabels=[], tc = table.columnManager.columns, i=2; i<tc.length;i++) {
 		radarLabels.push(tc[i].definition.title)
 	}
 	return(radarLabels)
@@ -84,28 +84,7 @@ function tableRowsToRadarPolygons() {
 // format radar data from table / table construct
 var radarData = {
 		labels: tableColumnsToRadarLabels(), // will the label order match? label order appears to match
-		datasets: tableRowsToRadarPolygons(),
-    // datasets: [{
-    //     label: "Meganium",
-    //     data: [80, 82, 100, 83, 100, 80],
-    //     backgroundColor: "rgba(98, 189, 65, .3)",
-    //     pointRadius: 5,
-    //     pointHoverRadius: 10
-    // },
-    // {
-    //     label: "Feraligatr",
-    //     data: [78, 84, 78, 109, 85, 100],
-    //     backgroundColor: "rgba(57, 139, 205, 0.3)",
-    //     pointRadius: 5,
-    //     pointHoverRadius: 10
-    // },
-    // {
-    //     label: "Typhlosion",
-    //     data: [85, 105, 100, 79, 83, 78],
-    //     backgroundColor: "rgba(222, 0, 0, 0.3)",
-    //     pointRadius: 5,
-    //     pointHoverRadius: 10
-    // }]
+		datasets: tableRowsToRadarPolygons()
 }
 
 function updateRadar() {

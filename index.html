@@ -17,7 +17,7 @@
 <!-- transpose??? -->
 <button onclick='tableData.unshift({name:""});'>Add Row</button>
 <button onclick='tableData.shift({name:""});'>Remove Row</button>
-<button onclick='table.addColumn({title:"tbd", field:"woo", editableTitle:true}, false);'>Add Column</button>  <!--needs to add row data too-->
+<button onclick='table.addColumn({title:"tbd", field: "tbd", editor: "input", editableTitle:true}, false);'>Add Column</button>  <!--needs to add row data too-->
 <button onclick='table.deleteColumn(table.getColumns(true)[table.getColumns(true).length-1]);'>Delete Column</button> <!--make this delete specifi columns-->
 
 <!-- this adds the new row but it hasn't reacted yet -->
