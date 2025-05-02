@@ -19,7 +19,7 @@ var myChart = new Chart(ctx, {
       ticks: {
         max: 120,
         min: 0,
-        stepSize: 0
+        stepSize: 5
       },
       layout: {
         padding: {
