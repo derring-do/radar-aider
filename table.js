@@ -4,7 +4,7 @@ var palette = ["rgba(98, 189, 65, .3)",
 ];
 
 var tableData = [
-    {name:"Meganium", hp: 80, att: 82, def: 100, spatt: 83, spdef: 100, speed: 80},
+    {name:"Meganium",   hp: 80, att: 82, def: 100, spatt: 83, spdef: 100, speed: 80},
 	{name:"Feraligatr", hp: 78, att: 84, def: 78, spatt: 109, spdef: 85, speed: 100},
 	{name:"Typhlosion", hp: 85, att: 105, def: 100, spatt: 79, spdef: 63, speed: 78}
 ];
@@ -28,7 +28,6 @@ function radarValuesToTableValues() {
 
 var table = new Tabulator("#example-table", {
 	data: tableData,          //load row data from array
-	movableColumns: true,
 	movableRows: true,
     rowHeader:{headerSort:false, resizable: false, minWidth:30, width:30, rowHandle:true, formatter:"handle"},
 	reactiveData:true, 
@@ -45,7 +44,7 @@ var table = new Tabulator("#example-table", {
 	// 	{column:"name", dir:"asc"},
 	// ],
 	columns:[                 //define the table columns
-		{title:"name", field:"name", editor:"input", editableTitle:true, frozen:true},
+		{title:"name", field:"name", editor:"input", editableTitle:true},
 		{title:"hp", field:"hp", editor:"input", editableTitle:true},
 		{title:"att", field:"att", editor:"input", editableTitle:true},
 		{title:"def", field:"def", editor:"input", editableTitle:true},
