@@ -30,25 +30,19 @@ var myChart = new Chart(ctx, {
         }
       }
     },
-
-    //tooltips: {
-    //  callbacks: {
-    //    title: function(tooltipItems, data) {
-    //      console.log(tooltipItems);
-    //      console.log(data);
-    //      return new Date().toLocaleTimeString();
-    //    }
-    //  }
-    //},
-
-    dragY: true,
-    dragX: true,
-    dragDataRound: 1,
-    onDragEnd: function (event, datasetIndex, index, value) {
-      console.log(`datasetIndex:${datasetIndex}, index:${index}, value:${value}`);
-      document.getElementById('item').innerHTML = myChart.config.data.labels[index];
-      document.getElementById('value').innerHTML = value;
-      updateTable()
-    },
-  }
+    plugins: {
+        dragData: {
+          dragData: true,
+          round: 1,
+          dragX: true,
+          dragY: true,
+          onDragEnd: function (event, datasetIndex, index, value) {
+            console.log(`datasetIndex:${datasetIndex}, index:${index}, value:${value}`);
+            document.getElementById('item').innerHTML = myChart.config.data.labels[index];
+            document.getElementById('value').innerHTML = value;
+            updateTable()
+          }
+        }
+      }
+    }
 });

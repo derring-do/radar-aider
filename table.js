@@ -12,11 +12,11 @@ var tableData = [
 function radarValuesToTableValues() {
 	var newTableData = []
 	for (var rd = myChart.data.datasets, i = 0; i < rd.length; i++) {
-		name = '{ "name": "' + rd[i].label + '"'; 
+		rname = '{ "name": "' + rd[i].label + '"'; 
 		nums = [];
-		for (var l = myChart.data.labels, j = 0; j < l.length; j++) {
+		for (var l = myChart.data.labels.slice(1, myChart.data.labels.length), j = 0; j < l.length; j++) {
 			nums.push('"' + l[j] + '": ' + rd[i].data[j])
-			entry = name + ", " + nums.join(", ")
+			entry = rname + ", " + nums.join(", ")
 		}
 		var entryObj = JSON.parse(entry + "}")
 		newTableData.push(entryObj)
@@ -28,7 +28,9 @@ function radarValuesToTableValues() {
 
 var table = new Tabulator("#example-table", {
 	data: tableData,          //load row data from array
+	movableColumns: true,
 	movableRows: true,
+    rowHeader:{headerSort:false, resizable: false, minWidth:30, width:30, rowHandle:true, formatter:"handle"},
 	reactiveData:true, 
 	layout:"fitColumns",      //fit columns to width of table
 	responsiveLayout:"hide",  //hide columns that dont fit on the table
@@ -43,7 +45,7 @@ var table = new Tabulator("#example-table", {
 	// 	{column:"name", dir:"asc"},
 	// ],
 	columns:[                 //define the table columns
-		{title:"name", field:"name", editor:"input", editableTitle:true},
+		{title:"name", field:"name", editor:"input", editableTitle:true, frozen:true},
 		{title:"hp", field:"hp", editor:"input", editableTitle:true},
 		{title:"att", field:"att", editor:"input", editableTitle:true},
 		{title:"def", field:"def", editor:"input", editableTitle:true},
